@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" fill="none">
+  <!-- OPRA Logo - Phantom Mask + OPRA wordmark -->
+
+  <!-- MASQUERADE MASK ICON -->
+  <g transform="translate(30, 40)">
+    <!-- Mask body (elegant pointed oval - like a masquerade mask) -->
+    <path d="M 60,0 C 90,-10 120,-5 130,15 C 140,35 135,55 120,65 C 105,75 85,78 70,72 C 55,78 35,75 20,65 C 5,55 0,35 10,15 C 20,-5 30,-10 60,0 Z" fill="#000000"/>
+    <path d="M 60,6 C 85,-2 112,2 120,17 C 128,32 124,48 112,56 C 100,64 85,67 72,62 C 59,67 44,64 32,56 C 20,48 16,32 24,17 C 32,2 35,-2 60,6 Z" fill="#FFFFFF"/>
+    <!-- Right eyehole (larger) -->
+    <path d="M 80,18 C 92,12 105,16 112,26 C 116,32 112,42 104,44 C 96,46 86,40 82,32 C 78,26 78,22 80,18 Z" fill="#000000"/>
+    <!-- Left eyehole (smaller) -->
+    <path d="M 38,20 C 48,14 56,18 60,26 C 64,32 60,40 54,42 C 48,44 40,40 36,34 C 32,28 32,24 38,20 Z" fill="#000000"/>
+    <!-- Red teardrop from right eye -->
+    <path d="M 108,46 C 112,54 114,64 110,72 C 106,80 98,82 92,80 C 86,78 84,72 88,66 C 92,60 100,56 104,52 C 104,48 102,46 108,46 Z" fill="#CC0000"/>
+    <!-- Small red dot accent -->
+    <circle cx="68" cy="62" r="3" fill="#CC0000"/>
+    <!-- Ribbon left -->
+    <path d="M 12,55 C -5,60 -20,58 -30,52" stroke="#000000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <!-- Ribbon right -->
+    <path d="M 128,55 C 145,60 160,58 170,52" stroke="#000000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- WORDMARK: OPRA -->
+  <g transform="translate(240, 30)">
+    <!-- O -->
+    <circle cx="35" cy="105" r="30" fill="none" stroke="#000000" stroke-width="9"/>
+    <!-- P -->
+    <rect x="85" y="75" width="11" height="60" fill="#000000"/>
+    <path d="M 96,75 H 120 C 140,75 145,88 145,102 C 145,116 140,130 120,130 H 96" fill="#000000"/>
+    <path d="M 96,85 H 116 C 128,85 134,94 134,102 C 134,110 128,120 116,120 H 96 Z" fill="#FFFFFF"/>
+    <!-- R -->
+    <rect x="165" y="75" width="11" height="60" fill="#000000"/>
+    <path d="M 176,75 H 200 C 220,75 225,88 225,102 C 225,116 220,130 200,130 H 176" fill="#000000"/>
+    <path d="M 176,85 H 196 C 208,85 214,94 214,102 C 214,110 208,120 196,120 H 176 Z" fill="#FFFFFF"/>
+    <line x1="195" y1="110" x2="220" y2="135" stroke="#000000" stroke-width="9" stroke-linecap="round"/>
+    <!-- A - NORMAL TRIANGLE A, not upside down -->
+    <path d="M 238,135 L 268,75 L 298,135" stroke="#000000" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <line x1="248" y1="118" x2="288" y2="118" stroke="#000000" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <!-- TAGLINE - Larger, readable -->
+  <text x="240" y="200" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="800" fill="#000000" letter-spacing="8">YOU TALK. WE ACT.</text>
+</svg>

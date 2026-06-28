@@ -1,0 +1,35 @@
+{
+  "name": "opra-backend",
+  "version": "1.0.0",
+  "description": "Opra - AI operator backend. Express API with SQLite, JWT auth, and task management.",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "preview": "npm run build && npm start"
+  },
+  "keywords": ["opra", "ai", "operator", "backend", "api"],
+  "author": "Opra Team",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^12.10.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "uuid": "^14.0.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^25.9.1",
+    "@types/uuid": "^10.0.0",
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3"
+  }
+}
