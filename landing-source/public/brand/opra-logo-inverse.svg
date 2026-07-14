@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" fill="none">
+  <!-- 
+    Opra Logo — Phantom Masquerade Wordmark (Dark Background / Inverse)
+    
+    White version for use on dark backgrounds.
+    All fills are inverted: black → white, white → black.
+  -->
+
+  <g transform="translate(35, 25)">
+
+    <!-- === LETTER "O" — The Phantom Mask === -->
+    <circle cx="30" cy="85" r="28" fill="#FFFFFF"/>
+    <circle cx="30" cy="85" r="18" fill="#000000"/>
+
+    <!-- Left eye cutout -->
+    <path d="
+      M 20,81
+      C 20,75  25,73   29,75
+      C 29,75  25,81   22,85
+      C 21,86  20,85   20,81
+      Z
+    " fill="#FFFFFF"/>
+
+    <!-- Play arrow inside left eye -->
+    <polygon points="23,77 23,84 27,81" fill="#000000"/>
+
+    <!-- Right eye cutout -->
+    <path d="
+      M 40,81
+      C 40,75  35,73   31,75
+      C 31,75  35,81   38,85
+      C 39,86  40,85   40,81
+      Z
+    " fill="#FFFFFF"/>
+
+    <!-- Phantom teardrop -->
+    <path d="
+      M 36,88
+      C 36,91   37,96   37,99
+      C 37,103  34,105  31,105
+      C 28,105  26,103  26,100
+      C 26,97   28,95   31,95
+      C 32,95   33,96   34,97
+      C 34,94   34,91   34,88
+      Z
+    " fill="#FFFFFF"/>
+
+    <!-- === LETTER "p" === -->
+    <path d="
+      M 66,120 V58
+      C 66,58   65,54   70,54
+      H 80
+      C 92,54   96,62   96,74
+      C 96,86   92,94   80,94
+      H 72
+      V 120
+      Z
+    " fill="#FFFFFF"/>
+
+    <!-- Counter of p -->
+    <path d="
+      M 72,62 V90
+      H 79
+      C 87,90   89,84   89,76
+      C 89,68   87,62   79,62
+      Z
+    " fill="#000000"/>
+
+    <!-- === LETTER "r" === -->
+    <path d="
+      M 102,120 V54
+      H 108
+      V 82
+      C 108,82  116,82  121,76
+      L 126,86
+      C 118,96  108,94  108,94
+      V 120
+      Z
+    " fill="#FFFFFF"/>
+
+    <!-- === LETTER "a" === -->
+    <path d="
+      M 140,118
+      C 129,118  120,108  120,88
+      C 120,68  129,58  140,58
+      C 151,58  160,68  160,88
+      C 160,108 151,118 140,118
+      Z
+    " fill="#FFFFFF"/>
+
+    <!-- Counter of a -->
+    <path d="
+      M 140,64
+      C 146,64  150,70  150,80
+      V 94
+      C 150,102 146,108 140,108
+      C 134,108 130,102 130,94
+      V 80
+      C 130,70  134,64  140,64
+      Z
+    " fill="#000000"/>
+
+    <!-- === MASK RIBBONS === -->
+    <path d="M 0,84 C -6,82  -14,86  -20,92" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.2"/>
+    <path d="M 60,84 C 66,82  74,86   80,92" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.2"/>
+
+    <!-- === TAGLINE === -->
+    <text x="0" y="152" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" fill="#FFFFFF" letter-spacing="5" opacity="0.5">YOU TALK. WE ACT.</text>
+
+  </g>
+</svg>
