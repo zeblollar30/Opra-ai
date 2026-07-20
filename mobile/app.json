@@ -40,6 +40,13 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "owner": "www.opra-ai.com",
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "f3b107ff-54ba-49b5-8088-44fbef03edc2"
+      }
     }
   }
 }
