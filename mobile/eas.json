@@ -16,6 +16,7 @@
       "android": {
         "buildType": "apk"
       },
+      "node": "22.14.0",
       "env": {
         "EAS_BUILD_NO_EXPO_GO_WARNING": "true"
       }
@@ -24,6 +25,7 @@
       "android": {
         "buildType": "app-bundle"
       },
+      "node": "22.14.0",
       "env": {
         "EAS_BUILD_NO_EXPO_GO_WARNING": "true"
       }
