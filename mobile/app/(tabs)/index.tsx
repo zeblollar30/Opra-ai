@@ -1,25 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, ScrollView, TouchableOpacity, RefreshControl } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity, RefreshControl, FlatList } from 'react-native';
 import { useAuth } from '../../context/AuthContext';
 import client from '../../api/client';
 import { Colors } from '../../constants/Colors';
 import { useColorScheme } from 'react-native';
-import { CheckCircle2, Clock, AlertCircle, TrendingUp } from 'lucide-react-native';
+import { CheckCircle2, Clock, AlertCircle, TrendingUp, ChevronRight } from 'lucide-react-native';
+import { useRouter } from 'expo-router';
 
 export default function DashboardScreen() {
   const { user, updateUser } = useAuth();
   const [stats, setStats] = useState<any>(null);
+  const [recentTasks, setRecentTasks] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const colorScheme = useColorScheme();
   const theme = Colors[colorScheme ?? 'light'];
+  const router = useRouter();
 
-  const fetchStats = async () => {
+  const fetchData = async () => {
     try {
-      const response = await client.get('/tasks/stats/summary');
-      setStats(response.data.stats);
+      const [statsRes, tasksRes] = await Promise.all([
+        client.get('/tasks/stats/summary'),
+        client.get('/tasks?limit=3')
+      ]);
+      setStats(statsRes.data.stats);
+      setRecentTasks(tasksRes.data.tasks);
     } catch (e) {
-      console.error('Failed to fetch stats', e);
+      console.error('Failed to fetch dashboard data', e);
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -27,13 +34,22 @@ export default function DashboardScreen() {
   };
 
   useEffect(() => {
-    fetchStats();
+    fetchData();
   }, []);
 
   const onRefresh = () => {
     setRefreshing(true);
-    fetchStats();
+    fetchData();
     updateUser();
+  };
+
+  const getStatusIcon = (status: string) => {
+    switch (status) {
+      case 'completed': return <CheckCircle2 size={16} color="#0D8A8A" />;
+      case 'pending': return <Clock size={16} color="#F4A261" />;
+      case 'failed': return <AlertCircle size={16} color="#E07A5F" />;
+      default: return null;
+    }
   };
 
   if (loading && !refreshing) {
@@ -107,8 +123,43 @@ export default function DashboardScreen() {
           </View>
         </View>
 
-        <TouchableOpacity style={[styles.ctaButton, { backgroundColor: theme.primary }]}>
-          <Text style={styles.ctaButtonText}>New Task</Text>
+        <View style={styles.recentSection}>
+          <View style={styles.sectionHeader}>
+            <Text style={[styles.sectionTitle, { color: theme.text }]}>Recent Tasks</Text>
+            <TouchableOpacity onPress={() => router.push('/tasks')}>
+              <Text style={{ color: theme.primary, fontSize: 14, fontWeight: '600' }}>View All</Text>
+            </TouchableOpacity>
+          </View>
+
+          {recentTasks.length > 0 ? (
+            recentTasks.map((task) => (
+              <TouchableOpacity 
+                key={task.id} 
+                style={[styles.taskItem, { backgroundColor: theme.card, borderColor: theme.border }]}
+                onPress={() => router.push(`/task/${task.id}`)}
+              >
+                <View style={{ flex: 1 }}>
+                  <Text style={[styles.taskItemTitle, { color: theme.text }]} numberOfLines={1}>{task.title}</Text>
+                  <View style={styles.taskItemStatus}>
+                    {getStatusIcon(task.status)}
+                    <Text style={[styles.taskItemStatusText, { color: theme.tabIconDefault }]}>{task.status}</Text>
+                  </View>
+                </View>
+                <ChevronRight size={16} color={theme.tabIconDefault} />
+              </TouchableOpacity>
+            ))
+          ) : (
+            <View style={styles.emptyRecent}>
+              <Text style={{ color: theme.tabIconDefault, fontSize: 14 }}>No tasks yet.</Text>
+            </View>
+          )}
+        </View>
+
+        <TouchableOpacity 
+          style={[styles.ctaButton, { backgroundColor: theme.primary, marginTop: 24 }]}
+          onPress={() => router.push('/create')}
+        >
+          <Text style={styles.ctaButtonText}>Create New Task</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -199,6 +250,49 @@ const styles = StyleSheet.create({
   },
   usageLabel: {
     fontSize: 12,
+  },
+  recentSection: {
+    marginBottom: 24,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  taskItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+    borderRadius: 12,
+    borderWidth: 1,
+    marginBottom: 10,
+  },
+  taskItemTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 4,
+  },
+  taskItemStatus: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  taskItemStatusText: {
+    fontSize: 12,
+    marginLeft: 4,
+    textTransform: 'capitalize',
+  },
+  emptyRecent: {
+    padding: 20,
+    alignItems: 'center',
+    borderRadius: 12,
+    borderStyle: 'dashed',
+    borderWidth: 1,
+    borderColor: '#E0DDD8',
   },
   ctaButton: {
     padding: 18,

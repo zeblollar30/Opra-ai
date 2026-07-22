@@ -4,6 +4,7 @@ import client from '../../api/client';
 import { Colors } from '../../constants/Colors';
 import { useColorScheme } from 'react-native';
 import { ChevronRight, Clock, CheckCircle2, AlertCircle } from 'lucide-react-native';
+import { useRouter } from 'expo-router';
 
 export default function TasksScreen() {
   const [tasks, setTasks] = useState([]);
@@ -11,6 +12,7 @@ export default function TasksScreen() {
   const [refreshing, setRefreshing] = useState(false);
   const colorScheme = useColorScheme();
   const theme = Colors[colorScheme ?? 'light'];
+  const router = useRouter();
 
   const fetchTasks = async () => {
     try {
@@ -52,7 +54,10 @@ export default function TasksScreen() {
   };
 
   const renderTask = ({ item }: any) => (
-    <TouchableOpacity style={[styles.taskCard, { backgroundColor: theme.card, borderColor: theme.border }]}>
+    <TouchableOpacity 
+      style={[styles.taskCard, { backgroundColor: theme.card, borderColor: theme.border }]}
+      onPress={() => router.push(`/task/${item.id}`)}
+    >
       <View style={styles.taskInfo}>
         <Text style={[styles.taskTitle, { color: theme.text }]} numberOfLines={1}>
           {item.title}
