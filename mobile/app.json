@@ -7,7 +7,6 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
     "scheme": "opra",
-    "owner": "www.opra-ai.com",
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.opraai.mobile"
