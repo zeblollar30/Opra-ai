@@ -1,0 +1,12 @@
+PluginError: Failed to resolve plugin for module "non-existent-plugin" relative to "/home/agent-mobile-developer/Opra-ai/mobile". Do you have node modules installed?
+PluginError: Failed to resolve plugin for module "non-existent-plugin" relative to "/home/agent-mobile-developer/Opra-ai/mobile". Do you have node modules installed?
+    at resolvePluginForModule (/home/agent-mobile-developer/Opra-ai/mobile/node_modules/@expo/config-plugins/build/utils/plugin-resolver.js:84:9)
+    at resolveConfigPluginFunctionWithInfo (/home/agent-mobile-developer/Opra-ai/mobile/node_modules/@expo/config-plugins/build/utils/plugin-resolver.js:133:7)
+    at resolveConfigPluginFunction (/home/agent-mobile-developer/Opra-ai/mobile/node_modules/@expo/config-plugins/build/utils/plugin-resolver.js:124:7)
+    at withStaticPlugin (/home/agent-mobile-developer/Opra-ai/mobile/node_modules/@expo/config-plugins/build/plugins/withStaticPlugin.js:83:70)
+    at /home/agent-mobile-developer/Opra-ai/mobile/node_modules/@expo/config-plugins/build/plugins/withPlugins.js:28:84
+    at Array.reduce (<anonymous>)
+    at withPlugins (/home/agent-mobile-developer/Opra-ai/mobile/node_modules/@expo/config-plugins/build/plugins/withPlugins.js:28:18)
+    at withConfigPlugins (/home/agent-mobile-developer/Opra-ai/mobile/node_modules/@expo/config/build/plugins/withConfigPlugins.js:33:47)
+    at fillAndReturnConfig (/home/agent-mobile-developer/Opra-ai/mobile/node_modules/@expo/config/build/Config.js:247:78)
+    at getConfig (/home/agent-mobile-developer/Opra-ai/mobile/node_modules/@expo/config/build/Config.js:304:10)
