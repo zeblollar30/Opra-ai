@@ -2,9 +2,10 @@ import { Router, Response } from 'express';
 import { signupUser, loginUser, authenticate, AuthRequest } from '../auth';
 
 const router = Router();
+const AUTH_PREFIX = '/auth';
 
-// POST /api/signup
-router.post('/signup', (req: AuthRequest, res: Response) => {
+// POST /api/signup and /api/auth/signup
+router.post(['/signup', `${AUTH_PREFIX}/signup`], (req: AuthRequest, res: Response) => {
   const { email, name, password } = req.body;
 
   if (!email || !name || !password) {
@@ -29,8 +30,8 @@ router.post('/signup', (req: AuthRequest, res: Response) => {
   });
 });
 
-// POST /api/login
-router.post('/login', (req: AuthRequest, res: Response) => {
+// POST /api/login and /api/auth/login
+router.post(['/login', `${AUTH_PREFIX}/login`], (req: AuthRequest, res: Response) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -50,8 +51,8 @@ router.post('/login', (req: AuthRequest, res: Response) => {
   });
 });
 
-// GET /api/me
-router.get('/me', authenticate, (req: AuthRequest, res: Response) => {
+// GET /api/me and /api/auth/me
+router.get(['/me', `${AUTH_PREFIX}/me`], authenticate, (req: AuthRequest, res: Response) => {
   res.json({ user: req.user });
 });
 
