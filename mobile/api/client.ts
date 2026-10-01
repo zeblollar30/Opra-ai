@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
 
-const API_URL = 'http://localhost:3000/api'; // Change this for real devices
+const API_URL = process.env.EXPO_PUBLIC_API_URL || 'https://opra-ai.vercel.app/api';
 
 const client = axios.create({
   baseURL: API_URL,
