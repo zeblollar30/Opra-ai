@@ -27,7 +27,16 @@
       "expo-secure-store",
       "expo-splash-screen",
       "expo-status-bar",
-      "expo-web-browser"
+      "expo-web-browser",
+      "expo-dev-client",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true
+          }
+        }
+      ]
     ],
     "extra": {
       "eas": {
