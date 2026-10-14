@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0A6E6E;
+  --color-primary-dark: #0D8A8A;
+  --color-primary-light: #E8F5F5;
+
+  --color-secondary: #4A90D9;
+  --color-secondary-light: #EFF5FC;
+
+  --color-accent: #F4A261;
+  --color-accent-deep: #E07A5F;
+  --color-accent-light: #FEF3ED;
+
+  --color-text-dark: #1A1817;
+  --color-text-medium: #4A4643;
+  --color-text-light: #8A8276;
+
+  --color-border: #E0DDD8;
+  --color-surface: #FAF9F7;
+
+  --font-sans: "Inter", "system-ui", "sans-serif";
+}
+
+@layer base {
+  html,
+  body {
+    @apply bg-surface text-text-dark antialiased font-sans;
+  }
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, #0A6E6E 0%, #0D8A8A 100%);
+}

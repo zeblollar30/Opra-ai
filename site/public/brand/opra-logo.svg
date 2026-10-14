@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" fill="none">
+  <!-- 
+    Opra Logo — Phantom Masquerade Wordmark (Light Background)
+    
+    Concept: The word "opra" itself IS the logo. 
+    The phantom mask emerges from within the letterforms:
+    
+    - The "O" is a bold circle whose counter (inner space) 
+      contains two almond eye cutouts — the phantom mask eyes.
+      The outer O remains a clean, readable letter.
+    
+    - "p", "r", "a" are thick, bold geometric sans —
+      heavy, grounded, confident. The theater/masquerade 
+      reference is architectural: heavy columns, proscenium arches.
+    
+    - A phantom teardrop descends from the right eye inside the O,
+      a nod to the music/theatre motif.
+    
+    - Thin mask-ribbon lines trail from the sides, tying 
+      the masquerade reference together.
+    
+    Black and white only. See inverse for dark backgrounds.
+  -->
+
+  <g transform="translate(35, 25)">
+
+    <!-- === LETTER "O" — The Phantom Mask ===
+         A bold circular O. The outer contour is a clean 
+         geometric circle — reads as a normal letter "o".
+         The inner counter is shaped with phantom mask features:
+         two almond eyes and a teardrop.
+    -->
+
+    <!-- Outer O (bold circle) -->
+    <circle cx="30" cy="85" r="28" fill="#000000"/>
+
+    <!-- Inner counter (the hollow of the O) — shaped to hold mask eyes -->
+    <circle cx="30" cy="85" r="18" fill="#FFFFFF"/>
+
+    <!-- Left eye cutout (inside the counter) — almond/masquerade shape -->
+    <path d="
+      M 20,81
+      C 20,75  25,73   29,75
+      C 29,75  25,81   22,85
+      C 21,86  20,85   20,81
+      Z
+    " fill="#000000"/>
+
+    <!-- Play arrow inside left eye (action/performance) -->
+    <polygon points="23,77 23,84 27,81" fill="#FFFFFF"/>
+
+    <!-- Right eye cutout -->
+    <path d="
+      M 40,81
+      C 40,75  35,73   31,75
+      C 31,75  35,81   38,85
+      C 39,86  40,85   40,81
+      Z
+    " fill="#000000"/>
+
+    <!-- Phantom teardrop from right eye -->
+    <path d="
+      M 36,88
+      C 36,91   37,96   37,99
+      C 37,103  34,105  31,105
+      C 28,105  26,103  26,100
+      C 26,97   28,95   31,95
+      C 32,95   33,96   34,97
+      C 34,94   34,91   34,88
+      Z
+    " fill="#000000"/>
+
+    <!-- === LETTER "p" ===
+         Bold, geometric. Heavy stroke. Ascender is straight.
+    -->
+    <path d="
+      M 66,120 V58
+      C 66,58   65,54   70,54
+      H 80
+      C 92,54   96,62   96,74
+      C 96,86   92,94   80,94
+      H 72
+      V 120
+      Z
+    " fill="#000000"/>
+
+    <!-- Counter of p -->
+    <path d="
+      M 72,62 V90
+      H 79
+      C 87,90   89,84   89,76
+      C 89,68   87,62   79,62
+      Z
+    " fill="#FFFFFF"/>
+
+    <!-- === LETTER "r" ===
+         Sturdy, compact. Compound curve on top.
+    -->
+    <path d="
+      M 102,120 V54
+      H 108
+      V 82
+      C 108,82  116,82  121,76
+      L 126,86
+      C 118,96  108,94  108,94
+      V 120
+      Z
+    " fill="#000000"/>
+
+    <!-- === LETTER "a" === -->
+    <path d="
+      M 140,118
+      C 129,118  120,108  120,88
+      C 120,68  129,58  140,58
+      C 151,58  160,68  160,88
+      C 160,108 151,118 140,118
+      Z
+    " fill="#000000"/>
+
+    <!-- Counter of a -->
+    <path d="
+      M 140,64
+      C 146,64  150,70  150,80
+      V 94
+      C 150,102 146,108 140,108
+      C 134,108 130,102 130,94
+      V 80
+      C 130,70  134,64  140,64
+      Z
+    " fill="#FFFFFF"/>
+
+    <!-- === SUBTLE MASK RIBBONS ===
+         Feather-light lines trailing from the O.
+         They hint at masquerade ribbons without overpowering the wordmark.
+    -->
+    <path d="M 0,84 C -6,82  -14,86  -20,92" fill="none" stroke="#000000" stroke-width="1.2" opacity="0.12"/>
+    <path d="M 60,84 C 66,82  74,86   80,92" fill="none" stroke="#000000" stroke-width="1.2" opacity="0.12"/>
+
+    <!-- === TAGLINE === -->
+    <text x="0" y="152" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" fill="#000000" letter-spacing="5" opacity="0.35">YOU TALK. WE ACT.</text>
+
+  </g>
+</svg>
