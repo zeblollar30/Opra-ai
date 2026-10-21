@@ -40,6 +40,7 @@ function initializeDb(db: Database.Database): void {
       status TEXT NOT NULL DEFAULT 'pending',
       result TEXT,
       created_at TEXT NOT NULL DEFAULT (datetime('now')),
+      updated_at TEXT NOT NULL DEFAULT (datetime('now')),
       completed_at TEXT,
       FOREIGN KEY (user_id) REFERENCES users(id)
     );
@@ -48,6 +49,16 @@ function initializeDb(db: Database.Database): void {
     CREATE INDEX IF NOT EXISTS idx_tasks_status ON tasks(status);
     CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
   `);
+
+  // Existing installations predate the worker's updated_at field. Migrate
+  // in place so users and tasks survive the upgrade; repeated starts are safe.
+  const columns = db.prepare('PRAGMA table_info(tasks)').all() as { name: string }[];
+  if (!columns.some(column => column.name === 'updated_at')) {
+    db.transaction(() => {
+      db.exec('ALTER TABLE tasks ADD COLUMN updated_at TEXT');
+      db.exec('UPDATE tasks SET updated_at = created_at WHERE updated_at IS NULL');
+    })();
+  }
 }
 
 export default getDb;

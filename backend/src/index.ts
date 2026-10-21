@@ -21,6 +21,17 @@ app.get('/api/health', (_req, res) => {
 app.use('/api', authRouter);
 app.use('/api/tasks', tasksRouter);
 
+// Return JSON to mobile clients instead of Express's default HTML error page.
+// Log the route and exception, never credentials, tokens, or request bodies.
+app.use((err: unknown, req: express.Request, res: express.Response, next: express.NextFunction) => {
+  console.error(`Request failed: ${req.method} ${req.path}`, err);
+  if (res.headersSent) {
+    next(err);
+    return;
+  }
+  res.status(500).json({ error: 'The server could not save your request. Please try again.' });
+});
+
 app.use((req, res) => {
   if (req.path.startsWith('/api/')) {
     res.status(404).json({ error: 'API endpoint not found' });
